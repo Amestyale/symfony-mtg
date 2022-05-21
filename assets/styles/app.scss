@@ -1,0 +1,77 @@
+
+// the ~ allows you to reference things in node_modules
+@import "~bootstrap/scss/bootstrap";
+
+p {
+    margin: 0;
+    padding: 0;
+}
+img{
+    max-width: 100%;
+    border-radius: 5px;
+}
+button{
+    margin: 1em 0;
+}
+.u-whitespace{
+    white-space: pre-wrap;
+}
+.o-card{
+    display: grid;
+    grid-template-areas: 
+        "image title"
+        "image description";
+    grid-template-columns: 5em 1fr;
+    align-items: center;
+    row-gap: 0.25em;
+    column-gap: 1em;
+    margin: 2em 0;
+}
+
+.o-card__title{
+    grid-area: title;
+}
+.o-card__description{
+    grid-area: description;
+    font-style: italic;
+}
+.o-card__image{
+    width: 3em;
+    margin: auto;
+    grid-area: image;
+}
+
+.c-colors{
+    display: flex;
+    align-items: baseline;
+    gap: 0.25em;
+}
+.c-colors img{
+    width: 1.25em;
+}
+
+.btn{
+    display: block;
+    margin-left: auto;
+}
+
+.row{
+    row-gap: 2em;
+}
+
+nav.main-nav{
+    box-shadow: 0px 2px gainsboro;
+    position: sticky;
+    top: 0;
+    margin-bottom: 1em;
+}
+
+.o-group{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.c-cards-search{
+    margin-bottom: 3em;
+}

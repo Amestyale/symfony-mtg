@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Deck{% endblock %}
+
+{% block body %}
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ path('app_deck_index') }}">Decks</a></li>
+        <li class="breadcrumb-item"><a href="{{ path('app_deck_show', {'id' : deck.id }) }}">{{ deck.name }}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Editing</li>
+      </ol>
+    </nav>
+
+    <h1>Edit Deck</h1>
+
+    <div class="row">
+        <div class="col-12">
+            {{ form(form) }}
+            {{ include('deck/_delete_form.html.twig') }}
+        </div>
+        <div class="col-12">
+            <h2>Liste des cartes</h2>
+            {{ include('card/index.html.twig') }}
+        </div>
+        <div class="col-12">
+            <h2>Ajouter une carte</h2>
+            {{ include('card/search.html.twig') }}
+        </div>
+    </div>
+    
+{% endblock %}

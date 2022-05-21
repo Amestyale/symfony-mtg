@@ -1,0 +1,50 @@
+
+<ul>
+    <table class="table">
+        <tr class="table-danger" >
+            <td colspan=6>Mythic</td>
+        </tr>
+        {% for card in cards|filter(c => c.rarity == "mythic")  %}
+            {{ include('card/line.html.twig') }}
+        {% endfor %}
+        <tr class="table-warning">
+            <td colspan=6>Rares</td>
+        </tr>
+        {% for card in cards|filter(c => c.rarity == "rare")  %}
+            {{ include('card/line.html.twig') }}
+        {% endfor %}
+        <tr class="table-info">
+            <td colspan=6>Uncommons</td>
+        </tr>
+        {% for card in cards|filter(c => c.rarity == "uncommon")  %}
+            {{ include('card/line.html.twig') }}
+        {% endfor %}
+        <tr class="table-secondary">
+            <td colspan=6>Commons</td>
+        </tr>
+        {% for card in cards|filter(c => c.rarity == "common")  %}
+            {{ include('card/line.html.twig') }}
+        {% endfor %}
+    </table>
+</ul>
+
+
+<script>
+    document.querySelectorAll(".js-card").forEach(card => {
+        let image
+        card.addEventListener("mouseover", (event)=>{
+            if(image) return true
+            console.log("ON");
+            let img = card.parentNode.querySelector('img')
+            image = img.cloneNode()
+            image.setAttribute("style",`display:block;width: 220px; position: absolute;left:${event.clientX + 10}px;top:${event.clientY + 10}px`)
+            document.querySelector('body').appendChild(image)
+        })
+        card.addEventListener("mouseout", (event)=>{
+            if(image) {
+                image.remove()
+                image = null
+            }
+        })
+    })
+</script>

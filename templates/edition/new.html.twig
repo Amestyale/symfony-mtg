@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Edition{% endblock %}
+
+{% block body %}
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ path('app_edition_index') }}">Editions</a></li>
+        <li class="breadcrumb-item active" aria-current="page">New edition</li>
+      </ol>
+    </nav>
+
+    <h1>Create new Edition</h1>
+
+    {{ form(form) }}
+
+{% endblock %}

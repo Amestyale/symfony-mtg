@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editions{% endblock %}
+
+{% block body %}
+    <div class="o-group">
+        <h1>Editions</h1>
+        <a href="{{ path('app_edition_new')}}">
+            <button class="btn btn-primary">New edition</button>
+        </a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for edition in editions %}
+            <tr>
+                <td><img src="{{  edition.icon }}"/></td>
+                <td><a href="{{ path('app_edition_show', {'id': edition.id}) }}">{{ edition.name }}</a></td>
+                <td>{{ edition.date ? edition.date|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_edition_edit', {'id': edition.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_edition_new') }}">Create new</a>
+{% endblock %}

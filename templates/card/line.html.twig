@@ -1,0 +1,29 @@
+<tr>
+    <td>
+        {% if card.quantity is defined %}
+            {{ card.quantity }}
+        {% endif %}
+    </td>
+    <td>
+        <div class="c-colors">
+            {% for image in card.getImagedCost() %}
+                <img src="{{image}}"/>
+            {% endfor %}
+        </div>
+    </td>
+    <td>
+        <span style="cursor: pointer;" class="js-card" data-image="{{ card.image }}"><a href="{{ path('app_card_show',{'id': card.getId()} ) }}">{{ card.name }}</a></span>
+        <img style="width: 220px;display:none;" src="{{ card.image }}" />
+    </td>
+    {% if deck is defined and update is defined and update == true %}
+    <td>
+        <a href="{{ path('app_deck_add_card', { 'id': deck.getId(), 'card': card.getId(), 'action' : 'one'} ) }}">Ajouter une</a>
+    </td>
+    <td>
+        <a href="{{ path('app_deck_remove_card', { 'id': deck.getId(), 'card': card.getId(), 'action' : 'one'} ) }}">Retirer une</a>
+    </td>
+    <td>
+        <a href="{{ path('app_deck_remove_card', { 'id': deck.getId(), 'card': card.getId(), 'action' : 'all'} ) }}">Retirer tout</a>
+    </td>
+    {% endif %}
+</tr>
