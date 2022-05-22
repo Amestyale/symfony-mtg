@@ -27,7 +27,7 @@ class CardController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $card = new Card();
-        $form = $this->createForm(CardType::class, $card);
+        $form = $this->buildForm($card);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
